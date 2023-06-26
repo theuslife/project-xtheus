@@ -1,0 +1,80 @@
+/* Tente trabalhar o menos possível com porcentagem */
+
+* { /* Pega todos os elementos */
+    margin: 0
+}
+
+body {
+    overflow: hidden; /* Impede sobreposição de elementos dentro desta tag. Ou seja, impede scroll e elementos vazando da div */
+}
+
+div.flexClass {
+    display: flex;
+    height: 100vh; /*vh = viewportheight: pega o tamanho da tela. 100vh = 100% da tela em altura. VW = 100% da largura */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+div.fatherContent {
+
+    /* box-sizing independente 
+       do padding, margin e border não vai deixar que 
+       a box ultrapasse os 500 de altura e largura. Porém
+       se o margin ou padding informado for maior que a largura e altura
+       somente o box-sizing não impede da caixa de não aumentar. Nestes casos
+       usamos o overflow: hidden
+    */
+    box-sizing: border-box; 
+    overflow: hidden; /* Overflow hidden impede a rolagem/scroll. Como o conteúdo filho tem um padding maior que o height do pai o Overflow impede obrigatoriamente da caixa pai aumentar de tamanho */
+    height: 100px; 
+    width: 500px;
+}
+
+div.childrenContent {
+    background-color: brown;
+    color: white;
+    padding-bottom: 500px;
+}
+
+div.teste {
+    background-color: purple;
+    color: white;
+    box-sizing: border-box; 
+    height: 500px; 
+    width: 500px;
+    border: 5px dotted rgba(0,0,0,0.8); /* Borda */
+    /* A propriedade auto no margin-left e right fazem um cálculo da nossa caixa em compação a tela do usuário. 
+       Ele deixa sempre o máximo de margin para o lado selecionado. Se colocamos nos dois logo a tela fica centralizada  */
+    margin-left: auto; 
+    margin-right: auto;
+}
+
+span.spanTeste {
+    /*
+      Display inline não é uma caixa. Width, height, margin top e bottom não funcionam nele. 
+      Por padrão ele segue a linha do conteúdo.
+      A tag span por padrão é display: inline 
+    */
+    display: inline; 
+    background-color: red;
+    color: white;
+    width: 500px;
+    height: 500px;
+}
+
+span.inlineBlock {
+    /* 
+        A grande vantagem do inline é poder deixar conteúdos/tags html na mesma linha. 
+        O inline-block permite o uso normal de witdh, height, padding e margin e ainda 
+        nos permite a função de deixar o conteúdo seguinte na mesma linha! Porém o conteúdo 
+        seguinte também necessita ser inline!
+    */
+    display: inline-block; 
+    background-color: yellow;
+    width: 500px;
+}
+
+div.divInline {
+    display: inline;
+}
